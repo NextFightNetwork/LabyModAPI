@@ -6,6 +6,7 @@
         <autoDetectTypes>
           <platformType>SPIGOT</platformType>
           <platformType>BUNGEECORD</platformType>
+          <platformType>MCP</platformType>
         </autoDetectTypes>
       </configuration>
     </facet>

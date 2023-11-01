@@ -8,8 +8,11 @@ version = '1.0'
 repositories {
     mavenCentral()
     maven {
-        name = "spigotmc-repo"
-        url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+        content {
+            includeGroup 'org.bukkit'
+            includeGroup 'org.spigotmc'
+        }
     }
     maven {
         name = "sonatype"
@@ -19,13 +22,15 @@ repositories {
         name = 'minecraft-repo'
         url = 'https://libraries.minecraft.net/'
     }
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url = 'https://oss.sonatype.org/content/repositories/central' }
 }
 
 dependencies {
-    compileOnly "org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT"
-    implementation files("C:\\Workspace\\NextFight\\NextFightHub\\lib\\spigot-1.20-R0.1-SNAPSHOT-remapped.jar")
-    compileOnly 'com.mojang:authlib:1.5.21'
+    compileOnly 'org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT'
+    compileOnly 'com.mojang:authlib:4.0.43'
     compileOnly 'net.md-5:bungeecord-api:1.19-R0.1-SNAPSHOT'
+    implementation files('spigot-nms.jar')
 }
 
 def targetJavaVersion = 17

@@ -1,5 +1,5 @@
 name: LabyModAPI
 version: '${version}'
-main: com.maximfiedler.labymodapi.LabyModAPI
+main: com.maximde.labymodapi.LabyModAPI
 api-version: '1.20'
-author: MaximFiedler, IbizaGamer
+author: MaximDe, IbizaGamer
