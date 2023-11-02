@@ -17,7 +17,8 @@ public class LabyModAPI extends JavaPlugin {
   private static LabyModAPI instance;
   public void onEnable() {
     instance = this;
-    labyModProtocol = new LabyModProtocol();
+    this.getServer().getMessenger().registerOutgoingPluginChannel(this, "labymod3:main");
+    labyModProtocol = new LabyModProtocol(this);
   }
   public static LabyModAPI getInstance() {
     return instance;

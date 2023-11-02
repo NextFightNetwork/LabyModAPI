@@ -11,21 +11,21 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.MinecraftKey;
 import org.bukkit.craftbukkit.v1_20_R2.entity.CraftPlayer;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 
 import java.nio.charset.Charset;
 
 public class LabyModProtocol {
+
+  private final Plugin plugin;
+
+  public LabyModProtocol(Plugin plugin) {
+    this.plugin = plugin;
+  }
+
   public void sendLabyModMessage(Player player, String key, JsonElement messageContent) {
     byte[] bytes = getBytesToSend(key, messageContent.toString());
-    ClientboundCustomPayloadPacket packet = new ClientboundCustomPayloadPacket(new CustomPacketPayload() {
-      public void a(PacketDataSerializer pds) {
-        pds.c(bytes);
-      }
-      public MinecraftKey a() {
-        return new MinecraftKey("labymod3:main");
-      }
-    });
-    (((CraftPlayer)player).getHandle()).c.a(packet);
+    player.getServer().sendPluginMessage(plugin, "labymod3:main", bytes);
   }
 
   public byte[] getBytesToSend(String messageKey, String messageContents) {
